@@ -106,6 +106,7 @@ void sendTransform(geometry_msgs::Pose const &pose, const std_msgs::Header& head
     geometry_msgs::PoseStamped pose_stamped;
     pose_stamped.pose = pose;
     pose_stamped.header = header;
+    pose_stamped.header.frame_id = g_frame_id;
     g_pose_publisher.publish(pose_stamped);
   }
 
@@ -116,6 +117,7 @@ void sendTransform(geometry_msgs::Pose const &pose, const std_msgs::Header& head
     euler_stamped.vector.y = pitch;
     euler_stamped.vector.z = yaw;
     euler_stamped.header = header;
+    euler_stamped.header.frame_id = g_frame_id;
     g_euler_publisher.publish(euler_stamped);
   }
 }
